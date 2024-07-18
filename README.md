@@ -4,6 +4,9 @@ I am not very familiar with Django. I use FastAPI + SQLAlchemy Core, mostly.
 I chose UUID as primary key type. Other than that nothing really special.  
 OpenAPI schema is available at `/api/openapi`. There are very few tests.
 
+I ignored many important things like debug mode, authentication and authorization,
+configuration management and permissions as they are out of scope of this assignment.
+
 URLs:
 
 - `/api/wallets/`
