@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools==70.3.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sugar"
+dynamic = ["version"]
+dependencies = [
+    "Django==5.0.7",
+    "djangorestframework==3.15.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff==0.5.2",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "sugar.__version__"}
+
+[tool.ruff]
+line-length = 95
+
+[tool.ruff.lint]
+select = [
+    "F", "E", "W", "C90", "I", "N", "B", "A", "Q", "RET", "ERA", "RUF",
+    "COM", "C4", "DTZ", "G", "PIE", "T20", "PT", "RSE", "SIM", "W",
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true
