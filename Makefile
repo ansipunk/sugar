@@ -1,4 +1,4 @@
-.PHONY: help bootstrap lint clean
+.PHONY: help bootstrap lint test clean
 
 VENV=.venv
 PYTHON=$(VENV)/bin/python
@@ -7,6 +7,7 @@ help:
 	@echo "Available targets:"
 	@echo "  bootstrap - prepare virtual environment and install dependencies"
 	@echo "  lint      - run static code analysis"
+	@echo "  test      - run project tests"
 	@echo "  clean     - remove virtual environment and development artifacts"
 
 bootstrap: $(PYTHON)
@@ -17,6 +18,9 @@ $(PYTHON):
 
 lint: bootstrap
 	$(PYTHON) -m ruff check --fix .
+
+test: bootstrap
+	$(PYTHON) manage.py test --settings=sugar.test_settings
 
 clean:
 	rm -rf $(VENV) sugar.egg-info .ruff_cache
