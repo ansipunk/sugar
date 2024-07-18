@@ -38,7 +38,9 @@ free to use plugin https://django-rest-framework-json-api.readthedocs.io/en/stab
 
 - [ ] Test coverage
 - [ ] SQLAlchemy migrations is an option
+          No reason for those as we use Django ORM and Django migrations.
+	      Otherwise I'd use Alembic.
 - [x] Any linter usage
 - [ ] Quick start app guide if you create your own docker-compose or Dockerfiles
-- [ ] Comments in non-standart places in code
-- [ ] Use database indexes if you think it's advisable
+- [x] Comments in non-standart places in code
+- [x] Use database indexes if you think it's advisable

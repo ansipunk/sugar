@@ -8,6 +8,7 @@ dynamic = ["version"]
 dependencies = [
     "Django==5.0.7",
     "djangorestframework==3.15.2",
+    "djangorestframework_jsonapi['django-filter', 'openapi']==7.0.2",
 ]
 
 [project.optional-dependencies]
@@ -26,6 +27,7 @@ select = [
     "F", "E", "W", "C90", "I", "N", "B", "A", "Q", "RET", "ERA", "RUF",
     "COM", "C4", "DTZ", "G", "PIE", "T20", "PT", "RSE", "SIM", "W",
 ]
+ignore = ["B904"]
 
 [tool.ruff.lint.isort]
 force-single-line = true
