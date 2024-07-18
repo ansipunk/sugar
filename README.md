@@ -1,4 +1,24 @@
-# Running
+# Coding challenge for a certain company
+
+I am not very familiar with Django. I use FastAPI + SQLAlchemy Core, mostly.
+I chose UUID as primary key type. Other than that nothing really special.  
+OpenAPI schema is available at `/api/openapi`. There are very few tests.
+
+URLs:
+
+- `/api/wallets/`
+- `/api/transactions/`
+
+## Linting, testing
+
+Really straightforward.
+
+```sh
+make lint
+make test
+```
+
+## Running
 
 Fairly straightforward.
 
@@ -8,8 +28,6 @@ docker-compose up -d db # Wait for database initialization
 docker-compose up -d api # Start the application itself
 docker-compose run api python manage.py migrate # Run migrations
 ```
-
-# Coding challenge for a certain company
 
 ## Models
 
@@ -24,13 +42,13 @@ amounts. Transaction amount may be negative. Wallet balance should NEVER be nega
 
 #### Wallet
 
-- `label` - equals to, within a set, not within a set
-- `balance` - lower than, higher than, equals to, within a range, not within a range
+- `label` - equals to, within a set
+- `balance` - lower than, higher than, equals to
 
 #### Transaction
 
-- `wallet_id` - equals to, within a set, not within a set
-- `amount` - lower than, higher than, equals to, within a range, not within a range
+- `wallet_id` - equals to, within a set
+- `amount` - lower than, higher than, equals to
 
 ### Sorting fields
 
@@ -47,7 +65,7 @@ free to use plugin https://django-rest-framework-json-api.readthedocs.io/en/stab
 
 ### Will be your advantage:
 
-- [ ] Test coverage
+- [x] Test coverage
 - [ ] SQLAlchemy migrations is an option
           No reason for those as we use Django ORM and Django migrations.
 	      Otherwise I'd use Alembic.

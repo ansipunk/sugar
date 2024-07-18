@@ -1,4 +1,3 @@
-import contextlib
 import uuid
 
 from django import test
@@ -17,8 +16,9 @@ class WalletModelTests(test.TestCase):
     def test_wallet_creation(self):
         """Test that a Wallet object is created successfully."""
         wallet = models.Wallet.objects.get(id=self.wallet.id)
-        assert wallet.label == "Test Wallet"
-        assert wallet.balance == 0
+
+        self.assertEqual(wallet.label, "Test Wallet")
+        self.assertEqual(wallet.balance, 0)
 
 
 class TransactionModelTests(test.TestCase):
@@ -29,30 +29,24 @@ class TransactionModelTests(test.TestCase):
         )
 
     def test_transaction_creation(self):
-        assert self.wallet.balance == 0
+        self.assertEqual(self.wallet.balance, 0)
 
         models.Transaction(
             wallet=self.wallet, txid="txid", amount=100,
         ).save()
 
-        assert self.wallet.balance == 100
+        self.assertEqual(self.wallet.balance, 100)
 
-    def test_transaction_negative(self):
-        assert self.wallet.balance == 0
-
-        models.Transaction(
-            wallet=self.wallet, txid="txid", amount=100,
-        ).save()
         models.Transaction(
             wallet=self.wallet, txid="txid", amount=-50,
         ).save()
 
-        assert self.wallet.balance == 50
+        self.assertEqual(self.wallet.balance, 50)
 
     def test_transaction_illegal(self):
-        assert self.wallet.balance == 0
+        self.assertEqual(self.wallet.balance, 0)
 
-        with contextlib.suppress(exceptions.ValidationError):
+        with self.assertRaises(exceptions.ValidationError):
             models.Transaction(
                 wallet=self.wallet, txid="txid", amount=-100,
             ).save()
