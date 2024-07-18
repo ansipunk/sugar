@@ -1,3 +1,14 @@
+# Running
+
+Fairly straightforward.
+
+```sh
+docker-compose build
+docker-compose up -d db # Wait for database initialization
+docker-compose up -d api # Start the application itself
+docker-compose run api python manage.py migrate # Run migrations
+```
+
 # Coding challenge for a certain company
 
 ## Models
@@ -41,6 +52,6 @@ free to use plugin https://django-rest-framework-json-api.readthedocs.io/en/stab
           No reason for those as we use Django ORM and Django migrations.
 	      Otherwise I'd use Alembic.
 - [x] Any linter usage
-- [ ] Quick start app guide if you create your own docker-compose or Dockerfiles
+- [x] Quick start app guide if you create your own docker-compose or Dockerfiles
 - [x] Comments in non-standart places in code
 - [x] Use database indexes if you think it's advisable
