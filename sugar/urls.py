@@ -1,6 +1,5 @@
-from django.contrib import admin
-from django.urls import path
+from django import urls
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    urls.path("api/", urls.include("sugar.finance.urls")),
 ]

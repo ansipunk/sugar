@@ -18,6 +18,8 @@ USE_TZ = True
 WSGI_APPLICATION = "sugar.wsgi.application"
 
 INSTALLED_APPS = [
+    "sugar.finance",
+    "rest_framework",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
